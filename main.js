@@ -6,6 +6,7 @@ const inGuerra = document.querySelector("#inGuerra");                   // Guerr
 const selectGuerra = document.querySelector("#selectGuerra");
 const inEsportes = document.querySelector("#inEsportes");               // Esportes
 const selectEsportes = document.querySelector("#selectEsportes");
+const inFavoritos = document.querySelector("#inFavoritos");             // Textarea games favoritos
 
 // Declara uma função para ouvir qual será o genero escolhido pelo usuário
 const genero = () => {
@@ -77,6 +78,7 @@ const procData = (dataNasc) => {
 
 };
 
+// Declara uma função para obter o jogo selecionado pelo usuário
 const gameOpcoes = () => {
 
     const gameRPG = selectRPG.value;                // Obtém a opção do gênero RPG
@@ -100,8 +102,27 @@ const gameOpcoes = () => {
 
 };
 
+// Declara uma função para processar e validar os games favoritos inseridos pelo usuário
+const gamesFavoritos = (favoritos) => {
+
+    const partes = favoritos.split(" ");        // Separa os dados inseridos pelo usuário afim de evitar bugs
+
+    let msg;        // Declara uma var que irá receber uma mensagem de acordo com a existência de dados de favoritos
+
+    // Retorna uma mensagem específica dependendo da existência de games favoritos ou não
+    if (partes[0] !== "") {
+        msg = "Fico Feliz em saber sobre os seus Games Favoritos";
+        return msg;
+
+    } else {
+        msg = "Ahh... Você não possui Games Favoritos?";
+        return msg;
+    } 
+
+};
+
 // Declara uma função para imprimir a saída de dados para o usuário
-const outDados = (nome, dataNasc) => {
+const outDados = (nome, dataNasc, favoritos) => {
 
     const partesNome = nome.split(" ");     // Separa o nome em partes
     const primeiroNome = partesNome[0];     // Obtém o primeiro nome do usuário
@@ -118,7 +139,9 @@ const outDados = (nome, dataNasc) => {
     const subtitulo = document.createTextNode("Ficha do Gamer");
     const texto = document.createTextNode(`Nome: ${nome}\n
                                             Idade: ${procData(dataNasc)}ano(s)\n
-                                            Gênero Favorito: ${genero()}\n`);
+                                            Gênero Favorito: ${genero()}\n
+                                            Game Selecionado: ${gameOpcoes()}\n
+                                            ${gamesFavoritos(favoritos)}`);
 
 };
 
@@ -131,11 +154,13 @@ form.addEventListener("submit", (e) => {
 
     const nome = form.inNome.value;         // Obtém o nome do usuário
     const dataNasc = form.inData.value;     // Obtém a data de nascimento do usuário
+    const favoritos = inFavoritos.value;    // Obtém os jogos favoritos digitados pelo usuário
 
     // console.log(dataNasc);
     // console.log(procData(dataNasc));
     // console.log(genero());
     // console.log(outDados(nome, dataNasc))
     // console.log(gameOpcoes());
+    // console.log(gamesFavoritos(favoritos))
 
 });
