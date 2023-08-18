@@ -36,15 +36,18 @@ const genero = () => {
     
     let generoFavorito;     // Declara uma var para obter o gênero favorito do usuário
 
+    // Obtém o gênero favorito selecionado pelo usuário
     if (inRPG.checked) {
         generoFavorito = "RPG";
+
     } else if (inGuerra.checked) {
         generoFavorito = "Guerra";
+
     } else if (inEsportes.checked) {
         generoFavorito = "Esportes";
     }
 
-    return generoFavorito;
+    return generoFavorito;      // Retorna o gênero favorito do usuário
 
 };
 
@@ -71,6 +74,29 @@ const procData = (dataNasc) => {
     }
 
     return idade;       // Retorna a idade 
+
+};
+
+const gameOpcoes = () => {
+
+    const gameRPG = selectRPG.value;                // Obtém a opção do gênero RPG
+    const gameGuerra = selectGuerra.value;          // Obtém a opção do gênero Guerra
+    const gameEsportes = selectEsportes.value;      // Obtém a opção do gênero Esportes
+
+    // Verifica a validade da opção selecionada pelo usuário e a retorna
+    if (inRPG.checked && gameRPG !== "") {
+        return gameRPG;
+
+    } else if (inGuerra.checked && gameGuerra !== "") {
+        return gameGuerra;
+
+    } else if (inEsportes.checked && gameEsportes !== "") {
+        return gameEsportes;
+
+    } else {
+        alert("Selecione uma opção válida");
+        return;
+    }
 
 };
 
@@ -110,5 +136,6 @@ form.addEventListener("submit", (e) => {
     // console.log(procData(dataNasc));
     // console.log(genero());
     // console.log(outDados(nome, dataNasc))
+    // console.log(gameOpcoes());
 
 });
