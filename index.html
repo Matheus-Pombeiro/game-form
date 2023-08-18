@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Cabeçalho-->
+    <header class="cabecalho">
+        <h1 class="titulo">Game Form</h1>
+        <h2 class="subtitulo">Formulário para Gamers</h2>
+    </header>
+    
+    <!--Conteúdo Principal-->
+    <main class="principal">
+
+        <!--Formulário section-->
+        <section class="caixa-conteudo">
+            <form method="get" action="teste.jsp" class="formulario">
+
+                <!--Dados Pessoais do usuário-->
+                <div class="info-pessoais">
+                    <label for="inNome"><p class="texto-input">Nome:</p></label>
+                    <input type="text" name="nome" class="caixa-input" id="inNome" autocomplete="name" autofocus required>
+                    <label for="inData"><p class="texto-input">Data de Nascimento:</p></label>
+                    <input type="date" name="data" id="inData" required>
+                </div>
+
+                <!--Gênero de Jogos para o usuário escolher-->
+                <div class="genero">
+                    <p class="genero__texto texto-input">Gênero Favorito:</p>
+                    <label for="inRPG"><input type="radio" name="genero" id="inRPG" checked> RPG</label>
+                    <label for="inGuerra"><input type="radio" name="genero" id="inGuerra"> Guerra</label>
+                    <label for="inEsportes"><input type="radio" name="genero" id="inEsportes"> Esportes</label>
+                </div>
+            
+                <!--Opções de Jogos baseadas no gênero-->
+                <div class="jogos">
+                    <select name="rpg" id="selectRPG">
+                        <option value="">Selecione uma Preferência</option>
+                        <option value="skyrim">Skyrim</option>
+                        <option value="world-of-warcraft">World of Warcraft</option>
+                        <option value="fable">Fable</option>
+                    </select>
+                    <select name="guerra" id="selectGuerra" class="oculto">
+                        <option value="">Selecione uma Preferência</option>
+                        <option value="cod">Call of Duty</option>
+                        <option value="battlefield">Battlefield</option>
+                        <option value="wot">World of Tanks</option>
+                    </select>
+                    <select name="esportes" id="selectEsportes" class="oculto">
+                        <option value="">Selecione uma Preferência</option>
+                        <option value="fifa">FIFA</option>
+                        <option value="pes">NBA 2K24</option>
+                        <option value="gt">Gran Turismo</option>
+                    </select>
+                </div>
+
+                <!--Textarea para o usuário add os seus favoritos-->
+                <div class="favoritos">
+                    <p class="favoritos__texto texto-input">Quais são os seus Jogos Favoritos?</p>
+                    <textarea name="favoritos" class="caixa-text" id="inFavoritos"></textarea>
+                </div>
+
+                <!--Submit e Novo Prenchimento-->
+                <div class="botoes__container">
+                    <input type="submit" value="Enviar" class="botoes">
+                    <input type="reset" value="Novos Dados" class="botoes">
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <p class="rodape__texto">Desenvolvido por <a href="https://www.linkedin.com/in/matheus-pombeiro/" target="_blank" rel="noreferrer noopener" class="rodape__link">Matheus Pombeiro</a> 2023 &copy;</p>
+    </footer>
+    
+    <script src="main.js"></script>
+</body>
+</html>
