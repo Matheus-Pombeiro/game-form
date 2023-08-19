@@ -9,7 +9,7 @@
 
  Uso do HTML5:
  - Semântica
- - Estruturação e organização geral da página
+ - Estruturação e Organização geral da página
  - Desenvolvimento do Form
 
  Uso das CSS3:
