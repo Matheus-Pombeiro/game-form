@@ -26,8 +26,8 @@
 
  <a href="https://matheus-pombeiro.github.io/game-form/">Deploy</a>
 
- Autor: Matheus Vinicius Garcia Pombeiro
- Situação Acadêmica Atual do Autor (2º Semestre de 2023): Graduado em Ciências Contábeis e Graduando em Engenharia de Software
+ Autor: Matheus Vinicius Garcia Pombeiro <br>
+ Situação Acadêmica Atual do Autor (2º Semestre de 2023): Graduado em Ciências Contábeis e Graduando em Engenharia de Software <br>
  Data de Conclusão* do Projeto: 19/08/2023
 
  *: Este projeto é passivo de alterações, visando melhorias e/ou correções de bugs.
