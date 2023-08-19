@@ -30,6 +30,7 @@ body {
 .titulo, .subtitulo, .subtitulo-menor {
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    text-align: center;
 }
 
 .titulo {
@@ -38,10 +39,6 @@ body {
 
 .subtitulo {
     font-size: 1.4rem;
-}
-
-.subtitulo-menor {
-    font-size: 1.3rem;
 }
 
 /*Configs do Conteúdo Principal*/
@@ -56,7 +53,7 @@ body {
 
 .caixa-conteudo {
     width: fit-content;
-    margin: 0 auto;
+    margin: 0 20px;
     margin-bottom: 2rem;
     padding: 1.5rem;
     background-color: rgb(255, 255, 255);
@@ -65,7 +62,7 @@ body {
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.443);
 }
 
-.formulario, .info-pessoais, .genero, .favoritos {
+.caixa-conteudo, .formulario, .info-pessoais, .genero, .favoritos {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -129,6 +126,17 @@ body {
     background-color: #1453b3;
 }
 
+.titulo-outdados {
+    align-self: center;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.img-ghosts {
+    align-self: center;
+}
+
 /*Configs do Rodapé*/
 
 .rodape {
@@ -157,8 +165,6 @@ body {
     /*Configs do Header*/
 
     .titulo, .subtitulo, .subtitulo-menor {
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: bold;
         letter-spacing: 2px;
     }
 
@@ -170,10 +176,6 @@ body {
         font-size: 1.9rem;
     }
 
-    .subtitulo-menor {
-        font-size: 1.7rem;
-    }
-
     /*Configs do Conteúdo Principal*/
 
     .principal {
@@ -183,6 +185,7 @@ body {
     }
 
     .caixa-conteudo {
+        margin: 0 auto;
         margin-bottom: 3rem;
         opacity: .8;
         transition: all ease .5s;
@@ -205,6 +208,10 @@ body {
         border-radius: 4px;
         padding-top: 3px;
         padding-left: 5px;
+    }
+
+    .titulo-outdados {
+        font-size: 1.5rem;
     }
 
     /*Configs do Rodapé*/

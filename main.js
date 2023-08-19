@@ -1,4 +1,5 @@
 // Obtém elementos da página
+const principal = document.querySelector("#principal");                 // Tag main do HTML
 const form = document.querySelector("form");                            // Form
 const inRPG = document.querySelector("#inRPG");                         // RPG
 const selectRPG = document.querySelector("#selectRPG");
@@ -9,6 +10,7 @@ const selectEsportes = document.querySelector("#selectEsportes");
 const inFavoritos = document.querySelector("#inFavoritos");             // Textarea games favoritos
 const inCheckbox = document.querySelector("#inCheckbox");               // Checkbox
 const submit = document.querySelector("#submit");                       // Submit
+const novosDados = document.querySelector("#novosDados");               // Novos Dados
 
 // Declara uma função para ouvir qual será o genero escolhido pelo usuário
 const genero = () => {
@@ -70,13 +72,17 @@ const procData = (dataNasc) => {
 
     let idade;      // Declara a variável idade
 
+    const msgVazia = " X ";
+
     if (auxIdade >= 0) {                                                // Se a idade não for negativa...   
-        idade = Math.floor((auxIdade / 86400000) / 365.25);       // Processa a idade (1 dia == 86.400.000 milissegundos)
+        idade = Math.floor((auxIdade / 86400000) / 365.25);             // Processa a idade (1 dia == 86.400.000 milissegundos)
+        return idade;                                                   // Retorna a idade
     } else {                                                            // Senão...            
         alert("Data de Nascimento Inválida. Tente Novamente.");         // Exibe um alerta
+        return msgVazia;                                                // Retorna uma mensagem vazia
     }
 
-    return idade;       // Retorna a idade 
+     
 
 };
 
@@ -86,6 +92,8 @@ const gameOpcoes = () => {
     const gameRPG = selectRPG.value;                // Obtém a opção do gênero RPG
     const gameGuerra = selectGuerra.value;          // Obtém a opção do gênero Guerra
     const gameEsportes = selectEsportes.value;      // Obtém a opção do gênero Esportes
+
+    const msgVazia = " X "
 
     // Verifica a validade da opção selecionada pelo usuário e a retorna
     if (inRPG.checked && gameRPG !== "") {
@@ -98,8 +106,8 @@ const gameOpcoes = () => {
         return gameEsportes;
 
     } else {
-        alert("Selecione uma opção válida");
-        return;
+        alert("Ops... Parece que você não selecionou um Game.");
+        return msgVazia;
     }
 
 };
@@ -127,7 +135,7 @@ const gamesFavoritos = (favoritos) => {
 const checkbox = () => {
 
     // O botão submit começa desabilitado
-    submit.disabled;
+    submit.disabled = true;
     submit.style.background = "gray";
     submit.style.cursor = "default";
 
@@ -136,12 +144,13 @@ const checkbox = () => {
 
         // Habilita ou desabilita o submit dependendo do checkbox
         if (inCheckbox.checked) {
-            submit.enable;
+            submit.disabled = false;
+            submit.enabled = true;
             submit.style.background = "#1c77ff";
             submit.style.cursor = "pointer";
 
         } else {
-            submit.disabled;
+            submit.disabled = true;
             submit.style.background = "gray";
             submit.style.cursor = "default";
 
@@ -192,17 +201,56 @@ const outDados = (nome, dataNasc, favoritos) => {
     const section = document.createElement("section");
     const h3 = document.createElement("h3");
     const h4 = document.createElement("h4");
-    const p =  document.createElement("p");
-    const pacman = document.createElement("img");
+    const pNome = document.createElement("p");
+    const pIdade = document.createElement("p");
+    const pGenero = document.createElement("p");
+    const pGame = document.createElement("p");
+    const pFavoritos = document.createElement("p");
+    const pMsgFinal = document.createElement("p");
+    const ghosts = document.createElement("img");
 
     // Cria elementos de texto
-    const titulo = document.createTextNode(`Olá, ${primeiroNome}. Seja Bem-vindo!`);
+    const titulo = document.createTextNode(`Olá, ${primeiroNome}. É um prazer te conhecer!`);
     const subtitulo = document.createTextNode("Ficha do Gamer");
-    const texto = document.createTextNode(`Nome: ${nome}\n
-                                            Idade: ${procData(dataNasc)}ano(s)\n
-                                            Gênero Favorito: ${genero()}\n
-                                            Game Selecionado: ${gameOpcoes()}\n
-                                            ${gamesFavoritos(favoritos)}`);
+    const textoNome = document.createTextNode(`Nome: ${nome}`);
+    const textoIdade = document.createTextNode(`Idade: ${procData(dataNasc)} ano(s)`);
+    const textoGenero = document.createTextNode(`Gênero Favorito: ${genero()}`);
+    const textoGame = document.createTextNode(`Game Selecionado: ${gameOpcoes()}`);
+    const textoFavoritos = document.createTextNode(`${gamesFavoritos(favoritos)}`);
+    const textoMsgFinal = document.createTextNode("Obrigado por falar comigo. Tenha um excelente dia!");
+    
+
+    ghosts.src = ("assets/ghosts.png");     // Atribui uma imagem a tag img
+
+    h3.appendChild(titulo);     // Determina titulo como filho de h3
+    h4.appendChild(subtitulo);  // Determina subtitulo como filho de h4
+
+    // Determina os textos como filhos de ps
+    pNome.appendChild(textoNome);
+    pIdade.appendChild(textoIdade);
+    pGenero.appendChild(textoGenero);
+    pGame.appendChild(textoGame);
+    pFavoritos.appendChild(textoFavoritos);
+    pMsgFinal.appendChild(textoMsgFinal);      
+
+    // Determina os filhos de section
+    section.appendChild(h3);
+    section.appendChild(h4);
+    section.appendChild(pNome);
+    section.appendChild(pIdade);
+    section.appendChild(pGenero);
+    section.appendChild(pGame);
+    section.appendChild(pFavoritos);
+    section.appendChild(pMsgFinal);
+    section.appendChild(ghosts);
+
+    principal.appendChild(section);     // Determina section como filha de principal
+
+    // Estiliza os itens adicionados
+    section.classList.add("caixa-conteudo");
+    h3.classList.add("titulo-outdados");
+    h4.classList.add("titulo-outdados");
+    ghosts.classList.add("img-ghosts");
 
 };
 
@@ -219,11 +267,17 @@ form.addEventListener("submit", (e) => {
     const dataNasc = form.inData.value;     // Obtém a data de nascimento do usuário
     const favoritos = inFavoritos.value;    // Obtém os jogos favoritos digitados pelo usuário
 
-    // console.log(dataNasc);
-    // console.log(procData(dataNasc));
-    // console.log(genero());
-    // console.log(outDados(nome, dataNasc))
-    // console.log(gameOpcoes());
-    // console.log(gamesFavoritos(favoritos))
+    outDados(nome, dataNasc, favoritos);        // Chama a função de saída dos dados com passagem de parâmetro
+
+    // Desabilita o botão submit
+    submit.enabled = false;  
+    submit.disabled = true;
+    submit.style.background = "gray";       // Estiliza o botão submit após desabilitado
+    submit.style.cursor = "default";
+    inCheckbox.checked = false;             // Retira a seleção do botão checkbox
+    inCheckbox.disabled = true;
 
 });
+
+// Recarrega a página
+novosDados.addEventListener("click", () => window.location.reload());
