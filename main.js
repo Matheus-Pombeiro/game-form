@@ -126,11 +126,10 @@ const gamesFavoritos = (favoritos) => {
 // Declara uma função para validar a permissão do envio dos dados
 const checkbox = () => {
 
-    let countClick = 0;     // Declara uma var para contar os clicks no submit
-
     // O botão submit começa desabilitado
     submit.disabled;
     submit.style.background = "gray";
+    submit.style.cursor = "default";
 
     // Escuta o click no checkbox
     inCheckbox.addEventListener("click", () => {
@@ -139,6 +138,7 @@ const checkbox = () => {
         if (inCheckbox.checked) {
             submit.enable;
             submit.style.background = "#1c77ff";
+            submit.style.cursor = "pointer";
 
         } else {
             submit.disabled;
@@ -175,6 +175,7 @@ const checkbox = () => {
         // Se o checkbox estiver marcado, estiliza o submit
         if (inCheckbox.checked) {
             submit.style.background = "#1453b3";
+         
         }
 
     });
@@ -223,6 +224,6 @@ form.addEventListener("submit", (e) => {
     // console.log(genero());
     // console.log(outDados(nome, dataNasc))
     // console.log(gameOpcoes());
-    console.log(gamesFavoritos(favoritos))
+    // console.log(gamesFavoritos(favoritos))
 
 });
