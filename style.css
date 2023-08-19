@@ -9,6 +9,8 @@
 
 body {
     background-image: url("assets/background.jpg");
+    background-attachment: fixed;
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
