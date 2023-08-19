@@ -23,6 +23,7 @@
  - Eventos
  - Recebimento de Inputs e Tratamento de Dados
  - Manipulação de Datas
+ - Inserção de elementos HTML na página via JS
 
  <a href="https://matheus-pombeiro.github.io/game-form/">Deploy</a>
 
