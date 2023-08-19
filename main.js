@@ -121,7 +121,7 @@ const gamesFavoritos = (favoritos) => {
 
     // Retorna uma mensagem específica dependendo da existência de games favoritos ou não
     if (partes[0] !== "") {
-        msg = "Fico Feliz em saber sobre os seus Games Favoritos";
+        msg = "Fico feliz em saber sobre os seus Games Favoritos";
         return msg;
 
     } else {
