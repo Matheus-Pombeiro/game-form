@@ -7,6 +7,8 @@ const selectGuerra = document.querySelector("#selectGuerra");
 const inEsportes = document.querySelector("#inEsportes");               // Esportes
 const selectEsportes = document.querySelector("#selectEsportes");
 const inFavoritos = document.querySelector("#inFavoritos");             // Textarea games favoritos
+const inCheckbox = document.querySelector("#inCheckbox");               // Checkbox
+const submit = document.querySelector("#submit");                       // Submit
 
 // Declara uma função para ouvir qual será o genero escolhido pelo usuário
 const genero = () => {
@@ -121,6 +123,64 @@ const gamesFavoritos = (favoritos) => {
 
 };
 
+// Declara uma função para validar a permissão do envio dos dados
+const checkbox = () => {
+
+    let countClick = 0;     // Declara uma var para contar os clicks no submit
+
+    // O botão submit começa desabilitado
+    submit.disabled;
+    submit.style.background = "gray";
+
+    // Escuta o click no checkbox
+    inCheckbox.addEventListener("click", () => {
+
+        // Habilita ou desabilita o submit dependendo do checkbox
+        if (inCheckbox.checked) {
+            submit.enable;
+            submit.style.background = "#1c77ff";
+
+        } else {
+            submit.disabled;
+            submit.style.background = "gray";
+            submit.style.cursor = "default";
+
+        }
+
+    });
+
+    // Escuta o passar do cursor do mouse sobre o submit
+    submit.addEventListener("mouseover", () => {
+
+        // Se o checkbox estiver marcado, estiliza o submit
+        if (inCheckbox.checked) {
+            submit.style.background = "#1968df";
+        }
+        
+    });
+
+    // Escuta o sair do cursor do mouse sobre o submit
+    submit.addEventListener("mouseout", () => {
+
+        // Se o checkbox estiver marcado, estiliza o submit
+        if (inCheckbox.checked) {
+            submit.style.background = "#1c77ff";
+        }
+        
+    });
+
+    // Escuta o click no botão submit
+    submit.addEventListener("click", () => {
+
+        // Se o checkbox estiver marcado, estiliza o submit
+        if (inCheckbox.checked) {
+            submit.style.background = "#1453b3";
+        }
+
+    });
+
+};
+
 // Declara uma função para imprimir a saída de dados para o usuário
 const outDados = (nome, dataNasc, favoritos) => {
 
@@ -147,6 +207,8 @@ const outDados = (nome, dataNasc, favoritos) => {
 
 genero();       // Chama a função que determina o genero escolhido pelo usuário
 
+checkbox();     // Chama a função que valida a permissão do envio dos dados
+
 // Escuta quando o botão submit é clickado
 form.addEventListener("submit", (e) => {
 
@@ -161,6 +223,6 @@ form.addEventListener("submit", (e) => {
     // console.log(genero());
     // console.log(outDados(nome, dataNasc))
     // console.log(gameOpcoes());
-    // console.log(gamesFavoritos(favoritos))
+    console.log(gamesFavoritos(favoritos))
 
 });
