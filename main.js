@@ -276,6 +276,7 @@ form.addEventListener("submit", (e) => {
     submit.style.cursor = "default";
     inCheckbox.checked = false;             // Retira a seleção do botão checkbox
     inCheckbox.disabled = true;
+    inCheckbox.style.cursor = "default";    // Estliza o cursor do checkbox
 
 });
 
